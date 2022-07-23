@@ -1,0 +1,12 @@
+Medellín,Puerto Berrío,186
+Medellín,Puerto Triunfo,190
+Medellín,Manizales,200
+Manizales,Honda,141
+Puerto Berrío,Puerto Triunfo,129
+Puerto Triunfo, Honda, 102
+Honda, Bogotá,169
+Honda, Girardot,138
+Girardot, Bogotá, 133
+Girardot, Ibagué, 66
+Ibagué, Honda, 141
+Ibagué, Manizales, 174
