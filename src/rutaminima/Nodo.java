@@ -24,6 +24,26 @@ public class Nodo {
         return nombre;
     }
 
+    //asignar valor al nodo
+    public void asignarValor(double valor) {
+        this.valor = valor;
+    }
+
+    //Devuelve el valor del nodo
+    public double obtenerValor() {
+        return valor;
+    }
+
+    //asignar padre al nodo
+    public void asignarPadre(Nodo n) {
+        padre = n;
+    }
+
+    //Devuelve el padre del nodo
+    public Nodo obtenerPadre() {
+        return padre;
+    }
+
     public List<Nodo> obtenerVecinos() {
         return vecinos;
     }

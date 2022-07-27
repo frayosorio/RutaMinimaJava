@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package rutaminima;
 
 /**
@@ -12,24 +11,24 @@ package rutaminima;
  */
 public class FrmRutaMinima extends javax.swing.JFrame {
 
-    Grafo g=new Grafo();
-    
+    Grafo g = new Grafo();
+
     /**
      * Creates new form FrmRutaMinima
      */
     public FrmRutaMinima() {
         initComponents();
-        
+
         String nombreArchivo = System.getProperty("user.dir")
                 + "/src/datos/Distancias.txt";
         g.desdeArchivo(nombreArchivo);
-        
+
         g.mostrarNodos(tblCiudades);
         g.mostrarNodos(cmbDesde);
         g.mostrarNodos(cmbHasta);
-        
+
         g.mostrarAristas(tblDistancias);
-        
+
     }
 
     /**
@@ -42,6 +41,7 @@ public class FrmRutaMinima extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        btnRutaMinima = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jSplitPane2 = new javax.swing.JSplitPane();
@@ -61,6 +61,18 @@ public class FrmRutaMinima extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jToolBar1.setRollover(true);
+
+        btnRutaMinima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Procesar.png"))); // NOI18N
+        btnRutaMinima.setToolTipText("Hallar Ruta Mínima");
+        btnRutaMinima.setFocusable(false);
+        btnRutaMinima.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRutaMinima.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnRutaMinima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRutaMinimaActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnRutaMinima);
 
         jSplitPane2.setDividerLocation(300);
 
@@ -186,11 +198,16 @@ public class FrmRutaMinima extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE))
+                .addComponent(jTabbedPane2))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRutaMinimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutaMinimaActionPerformed
+        Resultado r = AlgoritmosGrafo.dijkstra(g, cmbDesde.getSelectedIndex(), cmbHasta.getSelectedIndex());
+        r.mostrar(tblRutaMinima, true);
+    }//GEN-LAST:event_btnRutaMinimaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,6 +245,7 @@ public class FrmRutaMinima extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRutaMinima;
     private javax.swing.JComboBox cmbDesde;
     private javax.swing.JComboBox cmbHasta;
     private javax.swing.JLabel jLabel1;
